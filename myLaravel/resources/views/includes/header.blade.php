@@ -1,0 +1,9 @@
+<div align="center">
+    <a href="/index">Index |</a>
+    <a href="/login">Login |</a>
+    <a href="/registration">Registration |</a>
+
+    <a href="/student/create">Create Student |</a>
+    <a href="/student/edit">Edit Student |</a>
+    <a href="/student/get">Get Student</a>
+</div>
