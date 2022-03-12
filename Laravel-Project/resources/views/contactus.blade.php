@@ -46,12 +46,12 @@
 					</a>
 				</td>
 				<td>
-					<a href="#">
+					<a href="https://github.com/akifzaman101">
 					<img src="https://i.ibb.co/YWp5zJ6/github.png" width="200px" height="200px" class="image">
 					</a>
 				</td>
 				<td>
-					<a href="#">
+					<a href="https://github.com/mohsina0110">
 					<img src="https://i.ibb.co/YWp5zJ6/github.png" width="200px" height="200px" class="image">
 					</a>
 				</td>
