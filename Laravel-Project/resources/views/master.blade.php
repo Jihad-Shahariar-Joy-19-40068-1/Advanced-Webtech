@@ -13,6 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
     @include('header')
@@ -48,12 +49,16 @@
         height: 300px;
     }
     .search-box{
-        width: 550px !important
+        width: 450px !important
     }
     .cart-list-devider{
         border-bottom: 1px solid #ccc;
         margin-bottom: 20px;
         padding-bottom: 20px
     }
+    .image {
+	border-radius: 150px;
+    }
+    
 </style>
 </html>

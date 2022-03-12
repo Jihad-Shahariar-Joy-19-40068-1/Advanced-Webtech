@@ -1,6 +1,15 @@
 @extends('master')
 @section("content")
 
+<!-- @if (Session::has('user'))
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <i class="fa fa-times"></i>
+    </button>
+    <strong>Logged In as {{session('user.name')}}</strong>
+  </div>
+@endif -->
+
 <div class="custom-product">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
