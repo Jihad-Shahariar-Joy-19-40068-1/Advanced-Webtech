@@ -59,6 +59,9 @@
     .image {
 	border-radius: 150px;
     }
+    .table{
+    text-align: center;
+    }
     
 </style>
 </html>

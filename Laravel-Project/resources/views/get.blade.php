@@ -1,12 +1,10 @@
 @extends('master')
 @section("content")
-<center>
 
-<!-- incomplete -->
-
-<table class="table table-bordered">
+<center><br>
+<table class="table table-bordered table">
             <tr>
-				<td colspan=2> USER DETAILS </td>
+				<td colspan=2><h2> USER DETAILS </h2></td>
 			</tr>
 			<tr>
 				<td>ID : </td>
@@ -24,11 +22,6 @@
 				<td>DOB : </td>
 				<td>{{$user->dob}}</td>
 			</tr>
-            
-			
 		</table>
-
-
-
-</center>
+<center
 @endsection

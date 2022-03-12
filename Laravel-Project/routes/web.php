@@ -44,3 +44,4 @@ Route::get('/aboutus', function () {
 Route::get('/contactus', function () {
     return view('contactus');
 });
+Route::get('/get/{id}',[UserController::class,'get'])->name('user.details');

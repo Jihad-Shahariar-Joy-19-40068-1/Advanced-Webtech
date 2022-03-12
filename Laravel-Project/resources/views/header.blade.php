@@ -47,6 +47,7 @@ if(Session::has('user'))
       <ul class="nav navbar-nav navbar-right">
         @if(Session::has('user'))
         <li><a href="/cartlist">Cart({{$total}})<span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li><a href="{{route('user.details',['id'=>Session::get('user')['id']])}}"><span class="glyphicon glyphicon-user"></span></a></li>
               <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{Session::get('user')['name']}}
               <span class="glyphicon glyphicon-user"></span>

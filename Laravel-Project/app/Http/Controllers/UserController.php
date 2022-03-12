@@ -51,7 +51,7 @@ class UserController extends Controller
     }
 
     public function get(Request $req){
-        return $req;
+        
         $user = User::where('id','=',$req->id)
         ->select('id','name','email','dob')
         ->first();  //get() for multiple data.
