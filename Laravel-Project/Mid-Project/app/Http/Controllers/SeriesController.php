@@ -73,4 +73,75 @@ class SeriesController extends Controller
         return view('series.search')
         ->with('data',$data); 
     }
+
+    public function series_upload(){
+        
+        return view('series.series_upload');
+    }
+
+    public function exist_episode(){
+        $data = Series::all();
+        return view('series.exist_ep_upload')
+        ->with('data',$data);
+    }
+
+    public function ep_upload(Request $req){
+        $s=Series::where('name','=',$req->ser)
+        ->first();
+
+        $this->validate($req,[
+                'epi_file'=>'required|mimes:mp4,ogx,oga,ogv,ogg,webm,3gp,mkv'
+            ],
+            [           
+                'epi_file.required'=>'Plase provide Episode Please!'
+            ]
+        );
+        
+        
+            $id = $s->id;
+            $name = $s->name;
+
+            $folder ="public/".$name."/episodes";
+            $f_name = $req->epi_no.'.'.$req->file('epi_file')->getClientOriginalExtension();
+            $name = $req->file('epi_file')->storeAs($folder,$f_name);
+            $user = new Episode();
+            $user->ep_no = $req->epi_no;
+            $user->name = $req->epi_name;
+            $user->summary = $req->epi_summary;
+            $user->video = "storage/".$req->ser."/"."episodes/".$f_name;
+            $user->from_series = $id;
+
+            $user->save();
+            return redirect()->route('series.list');
+        
+    }
+    public function ser_upload(Request $req)
+    {
+        
+        $this->validate($req,[
+                'poster'=>'required|mimes:png,jpg,jpeg|max:2048'
+            ],
+            [           
+                'poster.required'=>'Plase provide your profile picture'
+            ]
+        );
+    
+        $folder ="public/". $req->name ."/posters";
+        $f_name = $req->name.'.'.$req->file('poster')->getClientOriginalExtension();
+        $name = $req->file('poster')->storeAs($folder,$f_name);
+        $user = new Series();
+        $user->name = $req->name;
+        $user->type = $req->type;
+        $user->genre = $req->genre;
+        $user->description =$req->description;
+        $user->ep_count = $req->ep_count;
+        $user->poster ="storage/".$req->name."/"."posters/".$f_name;
+        $user->trailer = $req->trailer;
+        $user->save();
+        return redirect()->route('series.list');
+    }
+
+    public function s_upload(){
+        return view('series.ser_upload');
+    }
 }

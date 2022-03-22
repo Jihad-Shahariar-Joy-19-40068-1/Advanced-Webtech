@@ -5,11 +5,35 @@
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
         <fieldset>
-	<form method="post" action="{{route('registration.submit')}}">
+	<form method="post" action="{{route('registration.submit')}}" enctype="multipart/form-data">
 		{{@csrf_field()}}
 		<fieldset>
 			<legend><b style="color: black">Sign-up</b></legend>
 			<table align="center">
+			<tr>
+					<td style="color: white" width= "150px"><b>First Name: </b></td>
+					<td><input type="text" placeholder="First name" name="fname" value="{{old('fname')}}"></td>
+					<td>
+						@error('fname')
+						<span style="color: red">{{$message}}</span>
+						@enderror
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3><br></td>
+				</tr>
+				<tr>
+					<td style="color: white" width= "150px"><b>Last Name: </b></td>
+					<td><input type="text" placeholder=" last name" name="lname" value="{{old('lname')}}"></td>
+					<td>
+						@error('lname')
+						<span style="color: red">{{$message}}</span>
+						@enderror
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3><br></td>
+				</tr>
 				<tr>
 					<td style="color: white" width= "150px"><b>Username: </b></td>
 					<td><input type="text" placeholder="username" name="uname" value="{{old('uname')}}"></td>
@@ -68,6 +92,42 @@
 						@enderror
 					</td>
 				</tr>
+
+				<tr>
+					<td colspan=3><br></td>
+				</tr>
+				<tr>
+					<td style="color: white"><b>User Type:</b></td>
+					<td>
+						<select id="status" name="status">
+							<option value="Regular">User</option>
+							<option value="Admin">Admin</option>
+						</select>
+					</td>
+					<td>
+						@error('status')
+						<span style="color: red">{{$message}}</span>
+						@enderror
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3><br></td>
+				</tr>
+				<tr>
+					<td style="color: white"><b>Profile Picture:</b></td>
+					
+						<td><input type="file" name="pro_pic"></td>
+					
+					<td>
+						@error('pro_pic')
+						<span style="color: red">{{$message}}</span>
+						@enderror
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3><br></td>
+				</tr>
+				
 				
 				<tr>
 					<td colspan = 3 align="center"><br>

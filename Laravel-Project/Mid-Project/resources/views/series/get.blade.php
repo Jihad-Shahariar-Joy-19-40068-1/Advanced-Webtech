@@ -5,7 +5,7 @@
         <table border="2" width="100%" class="table table-hover">
 			<tr align="center">
 				<td>
-					<img src="{{$series->poster}}" width="230px" height="300px">
+					<img src="{{asset($series->poster)}}" width="230px" height="300px">
 				</td>
 				<td>
 		<table border="1" cellspacing="3" cellpadding="3" align="center">

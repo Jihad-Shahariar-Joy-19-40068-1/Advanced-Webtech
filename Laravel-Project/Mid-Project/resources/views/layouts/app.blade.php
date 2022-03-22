@@ -88,7 +88,8 @@
         @include('includes.header')
         <br>
         @yield('content')
-        <br>
+        @yield('demo')
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         @include('includes.footer')
         </center>
     </body>

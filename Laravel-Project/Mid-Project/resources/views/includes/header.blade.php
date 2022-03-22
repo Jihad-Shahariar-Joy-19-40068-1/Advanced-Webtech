@@ -31,16 +31,19 @@
         @if(!Session::has('user'))
         <li class=""><a href="{{route('aboutus')}}"><b style="color: white">About-Us </b></a></li>
         <li class=""><a href="{{route('contactus')}}"><b style="color: white">Contact-Us </b></a></li>
+        @elseif(Session::get('user')['status'] =="Admin")
+        <li class=""><a href="{{route('all_users')}}"><b style="color: white">User Details</b></a></li>
+        <li class=""><a href="{{route('upload')}}"><b style="color: white">Upload</b></a></li>
        
         @endif 
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         @if(Session::has('user'))
-
+          @if(Session::get('user')['status'] =="Regular")
         <li><a href="{{route('user.details',['id'=>encrypt(Session::get('user')['id'])])}}">
-            <span style="color: white" class="glyphicon glyphicon-user">
-            <img class="profile-icon" src="https://i.ibb.co/vz438j8/Profile-Image.jpg"></span></a></li>    
+            
+            <img class="profile-icon" src="{{asset(Session::get('user')['pro_pic'])}}"></span></a></li>    
         <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b style="color: #8b8680"></b>
               <span class="caret" style="color: white"></span></a>
@@ -51,6 +54,21 @@
               <li align = center><a href="{{route('logout')}}"><b>Logout</b></a></li>
               </ul>
               </li>
+            @elseif(Session::get('user')['status'] =="Admin")
+              <li><a href="{{route('user.details',['id'=>encrypt(Session::get('user')['id'])])}}">
+              
+              <img class="profile-icon" src="{{asset(Session::get('user')['pro_pic'])}}"></span></a></li>    
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b style="color: #8b8680"></b>
+                <span class="caret" style="color: white"></span></a>
+                <ul class="dropdown-menu">
+                <li align = center>{{Session::get('user')['uname']}}</li>
+                <li align = center><a href="{{route('aboutus')}}">About-Us</a></li>
+                <li align = center><a href="{{route('contactus')}}">Admin</a></li>
+                <li align = center><a href="{{route('logout')}}"><b>Logout</b></a></li>
+                </ul>
+                </li>
+            @endif
           @else
           <li><a href="{{route('login')}}"><b style="color: white">Login</b></a></li>
           <li><a href="{{route('registration')}}"><b style="color: white">Sign-Up</b></a></li>

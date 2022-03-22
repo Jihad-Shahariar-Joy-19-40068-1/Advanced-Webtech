@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
-        
             <p style="color: white; font-size: 25px"><b>Search Results</b></p>
             @foreach($data as $s)
             <div class="searched-s">

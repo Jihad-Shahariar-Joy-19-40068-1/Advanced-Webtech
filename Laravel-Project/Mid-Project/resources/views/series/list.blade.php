@@ -46,7 +46,7 @@
                       @foreach($series as $s)
                               <div class="trending-series">
                                   <a href="{{route('series.details',['id'=>encrypt($s->id)])}}">
-                                  <img class="trending-image" src="{{$s['poster']}}">
+                                  <img class="trending-image" src="{{asset($s->poster)}}">
                               <div>
                     <h3 class="trending-text">{{$s['name']}}</h3>
                   </div>
@@ -59,3 +59,4 @@
 </div>
 
 @endsection
+
